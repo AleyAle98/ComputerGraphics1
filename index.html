@@ -1,0 +1,184 @@
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="./style.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="icon" type="image/png" href="./resources/images/forest.png"/>
+	</head>
+	<body>
+		<div id="menu">
+			<div id="blocker">
+				<style>
+				img {
+  					width: 100%;
+ 				 	height: auto;
+				}
+				</style>
+				<div style="height: 1vh;">
+					<img id="logo" src="./resources/images/forest.png"/>
+				</div>
+
+				<div style = "position:relative; top:55vh;" id="instructions">
+					<input id="playGameButton" class="menuBottonStart" type="button" value="START">
+					<br />
+					<div style = "position:relative; top:30px;" class="icon-bar">
+	  					<a id="settingsButton"><i class="fa fa-cog"></i></a>
+						<a id="locationButtonD"><i class="fa fa-certificate"></i></a>
+						<a id="locationButtonE"><i class="fa fa-sun-o"></i></a>
+						<a id="locationButtonN"><i class="fa fa-moon-o"></i></a>
+						<a id="soundsButton"><i class="fa fa-volume-down"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="game">
+			<div id="loading">
+				<img id="LoadingGif" src="resources/images/Spinner.gif">
+			</div>
+			<div id="gameCanvas">
+				<canvas id="canvas"></canvas>
+				<div id="GameValues">
+					<div class="viewfinder">
+						<img id="viewfinder" src="./resources/images/mirino.png">
+					</div>
+
+					<div class="ModeParamsDiv">
+						<span id="lifesSpanGame" class="spanLogoMode">lifes: 3</span>
+					</div>
+
+					<div class="ModeParamsDiv">
+						<span id="timeSpanGame" class="spanLogoMode">time: 3:00</span>
+					</div>
+
+					<div class="ModeParamsDiv">
+						<span id="enemySpanGame" class="spanLogoMode">Enemy Killed: 0/</span>
+					</div>
+
+					<div class="ModeParamsDiv">
+						<span id="ammoSpanGame" class="spanLogoMode">ammo: 00/00</span>
+					
+					</div>
+
+					  	<span id="reloading" class="spanInteraction" style="visibility: hidden;"> RELOADING! 💣</span>
+						<span id="recover" class="spanInteraction" style="visibility: hidden;"> +5 LIFES ❤️</span>
+
+					<span id="writer">
+				</div>
+
+				<div id="PauseCanvas">
+					<input id="resumeButton" class="menuBotton" type="button" value="RESUME">
+					<span></span>
+					<input id="backToMenuButton" onclick="window.location.href='./'" class="menuBotton" type="button" value="BACK TO MENU">
+				</div>
+			</div>
+		</div>
+		
+		<div id="settings">
+		<style>
+				img {
+  					width: 100%;
+ 				 	height: auto;
+				}
+				</style>
+				<div style="height: 1vh;">
+					<img id="logo" src="./resources/images/zombies-wallpaper-preview.jpg"/>
+				</div>
+        <div id="MainSett">
+		<style>
+				img {
+  					width: 100%;
+ 				 	height: auto;
+					
+				}
+				</style>
+				<div style="height: 1vh;">
+					<img id="logo" src="./resources/images/img.png"/>
+				</div>
+            <span id="exitSettings">🡸 BACK</span>
+            <div class="settingElem">
+                <h1 class="titleElement">Settings:</h1>
+				<div class="insideDivElem">
+                    <span id="easyMode" class="difficulty">Easy</span>
+                    <span id="normalMode" class="difficulty">Normal</span>
+                    <span id="hardMode" class="difficulty">Hard</span>
+					<span id="stadiumLights" class="difficulty">Turn off lights</span>
+                </div>
+                <table id="otherSettingsTable">
+					<tr>
+						<td><span>Time:</span></td>
+                        <td><span> 0:30 </span></td>
+                        <td><input id="sliderTime" class="sliderClock" type="range" min="30" max="360" value="240" step="30"></td>
+                        <td><span> 6:00</span></td>
+
+                    </tr>
+                    <tr>
+						<td><span>Enemy</span></td>
+                        <td><span> 2 </span></td>
+                        <td><input id="sliderEnemy" class="sliderZombie" type="range" min="2" max="50" value="25" step="2"></td>
+                        <td><span> 50</span></td>
+                    </tr>
+                    <tr>
+						<td><span>Lifes:</span></td>
+                        <td><span> 1 </span></td>
+                        <td><input id="sliderLifes" class="sliderHeart" type="range" min="1" max="10" value="5" step="1"></td>
+                        <td><span> 10</span></td>
+                    </tr>
+                    <tr>
+						<td><span>Sensibility:</span></td>
+                        <td><span> 1 </span></td>
+                        <td><input id="sliderMouseSens" class="sliderMouse" type="range" min="0.5" max="1.5" value="1" step="0.1"></td>
+                        <td><span> 100</span></td>
+                    </tr>
+					<tr>
+						<td colspan="2">
+						<span>GodMode:</span>
+						<input id="godModeCkBox" type="checkbox" unchecked></span>
+                        </td>
+                    </tr>
+                    <tr>
+						<td colspan="2">
+                            <span>Viewfinder:</span>
+                            <input id="viewfinderCkBox" type="checkbox" checked></span>
+                        </td>
+                    </tr>
+                </table>
+                <p style="color:white">(W,A,S,D = Move, SHIFT = Run, SPACE = Jump, MOUSE = Visual, R = Reload, T = Torch, Z = Change Camera, TAB = Change Weapon)</p>
+                <div id="divBtnSettings">
+                    <span id="confirmSettings" class="btnSettings">Save changes</span>
+                    <span id="resetSettings" class="btnSettings">Reset settings</span>
+                </div>
+            </div>
+        </div>
+		</div>
+		
+		<div id="gameOver">
+
+			<div id="winGame">
+
+				<span id="gameOverResult" class="spanName"></span>
+				<span id="gameOverTitle" class="spanValue"> Continue?</span>
+				<div id="gameOverStats">
+					<div class="divStats">
+						<span class="spanName">Enemy killed: </span>
+						<span id="statsEnemy" class="spanValue"></span>
+					</div>
+					<div class="divStats">
+						<span class="spanName">Time: </span>
+						<span id="statsTime" class="spanValue"></span>
+					</div>
+						<a href="./" id="gameBackMenu2" class="backButton">🡸 Back to the Menu</a>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<script src="js/extraLibraries/three.js"></script>
+		<script src="js/extraLibraries/cannon.js"></script>
+		<script src="js/extraLibraries/GLTFLoader.js"></script>
+		<script src="js/extraLibraries/tween.umd.js"></script>
+		
+		<script type="module" src="main.js"></script>
+		
+	</body>
+</html>

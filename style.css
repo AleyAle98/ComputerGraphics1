@@ -1,0 +1,635 @@
+:root {
+    --white: #eeeeee;
+    --black: #031802;
+    --red: #c40000;
+    --yellow: #ffd900;
+    --blue: #00035b;
+    --royalblue: #0504aa;
+    --electricblue: #65fff7;
+    --violet: #c747fe;
+    --purple: #9370DB;
+    --green:  #0B5422;
+    --darkgreen:  #093918;
+    --lightgreen:  #6AE190;
+    --orange: #ff8300;
+  }
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    font-family: fantasy, Arial;
+
+    background: var(--white);
+    z-index: -20;
+}
+
+#loading{
+    width: 100%;
+    height: 100%;
+    background-color: var(--lightgreen);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 26;
+    position: absolute;
+}
+#LoadingGif{
+    margin-bottom: -20px;
+    width: 235px;
+    height: 215px;
+}
+
+#playGameButton{
+    margin: 70px 0 0 0;
+}
+
+#menu{
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--lightgreen);
+    background-image: url("resources/images/forest.png");
+    z-index: 0;
+}
+
+
+.icon-bar {
+  width: 97.5%; /* Full-width */
+  bottom: 80%;
+  background-color: var(--green);
+  border: 4px solid var(--darkgreen);
+  display: inline-block;
+  overflow: auto; /* Overflow due to float */
+
+}
+
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 19.6%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 10px 0; /* Some top and bottom padding */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+    background: var(--darkgreen);
+    color: lightgreen;
+    border: 4px solid lightgreen;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px white;
+}
+.icon-bar a:active {
+    background: var(--lightgreen);
+    color: lightgreen;
+}
+.icon-bar a:visited {
+    background: var(--lightgreen);
+    color: lightgreen;
+}
+.icon-bar a:focus {
+    background: var(--lightgreen);
+    color: lightgreen;
+}
+
+.menuBottonStart{
+    background: var(--green);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 38px;
+    padding: 7px 9px;
+    border: 4px solid var(--darkgreen);
+    box-shadow: 3px 3px 0px white;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+.menuBottonStart:hover {
+    background: var(--darkgreen);
+    color: lightgreen;
+    border: 4px solid lightgreen;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px white;
+}
+
+.menuBottonStart:focus {
+    background-color: lightgreen;
+}
+.menuBotton{
+    background: var(--green);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 38px;
+    padding: 7px 9px;
+    border: 4px solid var(--darkgreen);
+    box-shadow: 3px 3px 0px white;
+    transition: all 0.3s;
+    border-radius: 10px;
+    display: block;
+}
+.menuBotton:hover {
+    background: var(--darkgreen);
+    color: lightgreen;
+    border: 4px solid lightgreen;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px white;
+}
+
+.menuBotton:focus {
+    background-color: lightgreen;
+}
+
+.menuBottonSound{
+    background: var(--green);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 38px;
+    padding: 7px 9px;
+    border: 4px solid var(--darkgreen);
+    box-shadow: 3px 3px 0px white;
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+.menuBottonSound:hover {
+    background: var(--darkgreen);
+    color: lightgreen;
+    border: 4px solid lightgreen;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px white;
+}
+
+#PauseCanvas{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    z-index: 25;
+    position: absolute;
+    top: 0px;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+#PauseCanvas span{
+    font-size: 40px;
+    color: white;
+}
+
+#GameValues{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 19;
+    position: absolute;
+    top: 0px;
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ModeParamsDiv{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+#GameValues .ModeParamsDiv{
+    margin: 10px auto;
+}
+.spanLogoMode{
+    font-size: 22px;
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
+.viewfinder {
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+#viewfinder {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -15;
+    width: 30pt;
+    height: auto;
+}
+
+
+.difficulty{
+    border-radius: 25px;
+    padding: 3px 8px 6px 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    margin: auto;
+    font-size: 28px;
+    padding: 10px 46px;
+    cursor: pointer;
+	color: white;
+}
+#easyMode:hover{
+    border: 1px solid #1bff00;
+    background: #8bf58e;
+    box-shadow: 0px 6px 15px #1bff0061;
+	color: white;
+}
+#normalMode:hover{
+    border: 1px solid lightcoral;
+    background: #FF9377;
+    box-shadow: 0px 6px 15px #FF9377;
+	color: white;
+}
+#hardMode:hover{
+    border: 1px solid red;
+    background: #EB1111;
+    box-shadow: 0px 6px 15px #DC0D0D;
+	color: white;
+}
+
+#stadiumLights:hover{
+    border: 1px solid lightgoldenrodyellow;
+    background: #f5f38b;
+    box-shadow: 0px 6px 15px #fbff0061;
+	color: white;
+}
+
+.backButton{
+    border-radius: 20px;
+    padding: 6px 8px 6px 8px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    margin: auto;
+    font-size: 24px;
+    padding: 10px 42px;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+}
+
+
+#settings{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 10;
+    transition: all 0.3s;
+    background-color: var(--darkgreen);
+	background-image: url("resources/images/zombies-wallpaper-preview.jpg");
+}
+
+#MainSett{
+    width: 900px;
+    margin: 40px auto auto auto;
+}
+#exitSettings{
+    position: absolute;
+    top: 70px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px 5px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+	left: 220px
+}
+#exitSettings:hover{
+    background: rgb(255, 255, 255, 0.5);
+    color: black;
+}
+.settingElem{
+    margin: 10px 0 0 0;
+    padding: 0 0 10px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titleElement{
+    margin: 10px 0 10px 0;
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+#otherSettingsTable tr td span{
+    color: white;
+    text-shadow: 0 0 4px black;
+	left: 20px;
+}
+
+.sliderSetting {
+    -webkit-appearance: none !important;
+    border-radius: 25px;
+    background: #d3d3d3;
+    border: 1px solid #00000061;    
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
+}
+.sliderSetting:hover {
+    opacity: 1;
+}
+
+.sliderSetting::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 25px;
+    background: #0075ff;
+    cursor: pointer;
+}
+.sliderSetting::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    background: #0075ff;
+    transition: all 0.5s;
+    border-radius: 10px;
+    box-shadow: 0px 6px 15px #0026ff61;
+}
+
+#divBtnSettings{
+    margin: 15px 0 10px 0;
+}
+.btnSettings {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 7px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+    margin: 0 24px;
+    font-size: 24px;
+}
+.btnSettings:hover {
+    background: rgb(255, 255, 255, 0.5);
+    color: black;
+}
+
+.insideDivElem{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+#gameOver{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--black);
+    z-index: 40;
+    transition: all 0.3s;
+    background-image: url("resources/images/zombieBackground.png");
+    background-repeat: no-repeat;
+    display: none;
+}
+#winGame{
+    width: 100%;
+    height: 100%;
+    z-index: 25;
+    background: var(--lightgreen);
+    position: absolute;
+    top: 0px;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.spanValue{
+    font-size: 30px;
+    color: var(--darkgreen);
+}
+.spanInteraction{
+    color: #3a3a3a;
+    font-size: 30px;
+    bottom:  30px;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    position: absolute;
+}
+.spanName{
+    color: #3a3a3a;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+}
+#gameOverTitle{
+    font-family: cursive;
+    font-size: 45px;
+}
+#gameOverResult{
+    font-size: 60px;
+}
+#gameBackMenu{
+    margin: 15px 0 0 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    transition: all 0.3s;
+}
+#gameBackMenu:hover{
+    color: var(--red);
+}
+#gameOverStats{
+    display: flex;
+    width: 600px;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+.divStats{
+    width: max-content;
+}
+
+.sliderHeart {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.sliderHeart:hover {
+  opacity: 1;
+}
+
+.sliderHeart::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/hearticons.png") no-repeat;
+  transform: scale(0.7, 0.7);
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.sliderHeart::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/hearticons.png") no-repeat;
+  transform: scale(0.7, 0.7);
+  cursor: pointer;
+}
+
+.sliderZombie {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  background-repeat: no-repeat;
+}
+
+.sliderZombie:hover {
+  opacity: 1;
+}
+
+.sliderZombie::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/zombieicons.png");
+  transform: scale(0.7, 0.7);
+  object-fit: contain;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.sliderZombie::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: url("resources/images/zombieicons.png");
+  transform: scale(0.7, 0.7);
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.sliderClock {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  background-repeat: no-repeat;
+}
+
+.sliderClock:hover {
+  opacity: 1;
+}
+
+.sliderClock::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/clockicons.png");
+  transform: scale(0.7, 0.7);
+  object-fit: contain;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.sliderClock::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/clockicons.png");
+  transform: scale(0.7, 0.7);
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.sliderMouse {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  background-repeat: no-repeat;
+}
+
+.sliderMouse:hover {
+  opacity: 1;
+}
+
+.sliderMouse::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/sensibilityicons.png");
+  transform: scale(0.7, 0.7);
+  object-fit: contain;
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+
+.sliderMouse::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: url("resources/images/sensibilityicons.png");
+  transform: scale(0.7, 0.7);
+  cursor: pointer;
+  background-repeat: no-repeat;
+}
+.header {
+  border-bottom: 1px solid #bbb;
+}
+
+.title {
+  float: right;
+  text-align: center;
+  width: 66%;
+}
+
